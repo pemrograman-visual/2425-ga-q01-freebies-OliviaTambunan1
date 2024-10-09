@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Q01"/>
+        <attribute name="authors" value="ACER"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-10-09 04:25:37 PM"/>
+        <attribute name="created" value="QUNFUjtPTklUUk87MjAyNC0xMC0wOTswMzoyMjoxNyBQTTsyMDM1"/>
+        <attribute name="edited" value="QUNFUjtPTklUUk87MjAyNC0xMC0wOTswNDoyNTozNyBQTTsxOzIxNDk="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="min, harga, hargasementara" type="Real" array="False" size=""/>
+            <assign variable="harga" expression="0"/>
+            <assign variable="hargasementara" expression="0"/>
+            <assign variable="min" expression="9999"/>
+            <do expression="harga!=0">
+                <input variable="harga"/>
+                <if expression="harga=0">
+                    <then/>
+                    <else>
+                        <if expression="min&lt;harga">
+                            <then/>
+                            <else>
+                                <assign variable="min" expression="harga"/>
+                            </else>
+                        </if>
+                        <assign variable="hargasementara" expression="hargasementara+harga"/>
+                    </else>
+                </if>
+            </do>
+            <if expression="hargasementara&gt;=100">
+                <then>
+                    <assign variable="harga" expression="hargasementara-min"/>
+                </then>
+                <else>
+                    <assign variable="harga" expression="hargasementara"/>
+                </else>
+            </if>
+            <output expression="tofixed(harga,2)" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
